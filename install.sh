@@ -29,7 +29,7 @@ fi
 install_location="/opt/discosrv"
 latest_release_url=$(curl -k -L https://api.github.com/repos/syncthing/discosrv/releases/latest  2>/dev/null | grep 'browser_download_url.*linux-amd64' | cut -d \" -f4)
 if [[ -n ${latest_release_url} ]]; then
-  echo "Updating Syncthing"
+  echo "Updating Discovery Server"
   rm -rf ${install_location}
   echo "Downloading package from: ${latest_release_url}"
   mkdir -p ${install_location} && wget -nv -O - "${latest_release_url}" | tar -xzf - --strip-components=1 -C ${install_location}
@@ -41,7 +41,7 @@ fi
 install_location="/opt/relaysrv"
 latest_release_url=$(curl -k -L https://api.github.com/repos/syncthing/relaysrv/releases/latest  2>/dev/null | grep 'browser_download_url.*linux-amd64' | cut -d \" -f4)
 if [[ -n ${latest_release_url} ]]; then
-  echo "Updating Syncthing"
+  echo "Updating Relay Server"
   rm -rf ${install_location}
   echo "Downloading package from: ${latest_release_url}"
   mkdir -p ${install_location} && wget -nv -O - "${latest_release_url}" | tar -xzf - --strip-components=1 -C ${install_location}
